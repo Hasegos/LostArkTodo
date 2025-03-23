@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, userData-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>캐릭터 정보 찾기</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
+    <!-- Font Awesome 라이브러리 사용을 위해 추가-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="home/home.css">
+</head>
+<body>
+<div th:replace="~{ nav/nav.html :: navbar}"></div>
+
+<div class="wrapper">
+    <h1>캐릭터 정보</h1>
+    <div>
+        <input type="text" id="inputCharacter" placeholder="캐릭터 이름">
+    </div>
+    <div class="ApiGroup" id="ApiGroup">
+        <button id="information">찾기</button>
+    </div>
+
+    <div id="characterInformation" class="characterInformation">
+    </div>
+</div>
+<script src="home/home.js"></script>
+</body>
+</html>

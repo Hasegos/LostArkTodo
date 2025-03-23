@@ -1,0 +1,104 @@
+/* 기본 라이트 색상 */
+
+:root {
+    --text-color: #000000;
+    --nav-background-color: #1d1e1f;
+    --nav-text-color: #ffffff;
+}
+
+
+/* 다크 모드 색상 */
+/*
+[data-theme="dark"] {
+    --background-color: #121212;
+    --text-color: #ffffff;
+    --nav-background-color: #222222;
+    --nav-text-color: #bbbbbb;
+}
+*/
+
+/* navbar */
+.nav {
+    display : flex;
+    width : auto;
+    background-color: var(--nav-background-color);
+    color: var(--nav-text-color);
+}
+/* navbar 안에 메뉴들 */
+.nav a {
+    display: inline-block;
+    margin : 10px;
+    padding : 5px 10px;
+    font-size : 20px;
+    color : white;
+    text-decoration: none;
+}
+/* LOA Check */
+.nav .loaCheck{
+    font-size : 30px;
+    line-height: 1;
+}
+/* 로그인 버튼 */
+.nav .login{
+    display : flex;
+    margin-left : auto;
+}
+
+/* 로그인 버튼 누르고 나오는 목록 색상 */
+.nav .login .block {
+    font-size : 16px;
+    color: #121212;
+}
+
+/* 테마 버튼 */
+#theme-toggle {
+     background-color: inherit; /* 버튼 배경색을 페이지와 동일하게 설정 */
+     color: inherit; /* 텍스트 색상도 페이지와 동일하게 */
+     border: 1px solid rgba(0, 0, 0, 0.1); /* 가벼운 회색 테두리 */
+     margin : auto 0;
+     border-radius: 5px; /* 모서리를 둥글게 */
+     cursor: pointer;
+}
+
+
+/* 로그인 된 경우 나오는 CSS */
+/* 로그아웃 버튼 */
+#toggle-logout {
+    background-color : inherit;
+    height : 100%; /* 상위 태그 크기에 맞춰서 */
+    color: inherit; /* 텍스트 색상도 페이지와 동일하게 */
+    border-radius: 5px; /* 모서리를 둥글게 */
+    cursor: pointer;
+    border : none;
+}
+
+/* 전체 목록 */
+#logout-container{
+    display:none;
+    position: absolute; /* 화면 상단에 떠 있게 */
+    top: 50px; /* 버튼 아래로 */
+    text-align : center;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000; /* 다른 요소 위에 보이도록 */
+    color : transparent; /* ○ 로 목록뜨는 거 투명으로 처리*/
+}
+
+/* 목록 내용 */
+#logout-container_UL{
+     margin: 0;
+     padding: 0;
+}
+
+/*  버튼 크기 */
+#toggle-logout_text {
+    font-size:18px;
+}
+
+body {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}

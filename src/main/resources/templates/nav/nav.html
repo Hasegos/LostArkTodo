@@ -1,0 +1,29 @@
+<nav class="nav" th:fragment="navbar">
+    <link href="nav/nav.css" rel="stylesheet">
+    <script src="nav/nav.js"></script>
+    <a class="loaCheck" href="/home">밤의 나라</a>
+    <a href="/friend">친구</a>
+    <a href="/schedule">일정</a>
+    <a href="cube">큐브</a>
+    <a href="/search">실시간 검색순위</a>
+    <div class="login">
+        <!-- 다크 모드 변환 (사용안할 예정)-->
+        <!-- <button id="theme-toggle"><i class="fas fa-moon"></i></button> -->
+        <div id="email-container" th:if="${#authentication.principal != null and #authentication.principal != 'anonymousUser'}">
+            <!-- 로그인된 경우 -->
+            <button id="toggle-logout">
+                <h4 th:text="${#authentication.principal.username}" id="toggle-logout_text"></h4>
+            </button>
+            <div id="logout-container" >
+                <ul id="logout-container_UL">
+                    <li><a class="block"  href="/api" >API 키 등록</a></li>
+                    <li><a class="block" id="logout-link" href="/logout" >로그아웃</a></li>
+                </ul>
+            </div>
+        </div>
+        <div th:if="${#authentication.principal == null or #authentication.principal == 'anonymousUser'}">
+            <!-- 로그인되지 않은 경우 -->
+            <a href="/login">로그인</a>
+        </div>
+    </div>
+</nav>
