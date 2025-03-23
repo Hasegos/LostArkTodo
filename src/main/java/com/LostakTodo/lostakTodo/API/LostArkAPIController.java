@@ -40,7 +40,7 @@ public class LostArkAPIController {
         String apiKey = userApiInformation.getApiKey();
 
         try {
-            String jsonString = lostArkAPI.getUserProfiles(playerId, apiKey);
+            String jsonString = lostArkAPI.getUserProfiles(playerId, apiKey.trim());
             return ResponseEntity.ok(jsonString);
         } catch (Exception e) {
             e.printStackTrace();
@@ -56,7 +56,7 @@ public class LostArkAPIController {
         String apiKey = userApiInformation.getApiKey();
 
         try {
-            String jsonString = lostArkAPI.getUserEquipment(playerId,apiKey);
+            String jsonString = lostArkAPI.getUserEquipment(playerId,apiKey.trim());
             return ResponseEntity.ok(jsonString);
         }
         catch (Exception e){
@@ -72,7 +72,7 @@ public class LostArkAPIController {
         String apikey = userApiInformation.getApiKey();
 
         try {
-            String jsonString = lostArkAPI.getUserEngravings(playerId,apikey);
+            String jsonString = lostArkAPI.getUserEngravings(playerId,apikey.trim());
             return ResponseEntity.ok(jsonString);
         }
         catch (Exception e){

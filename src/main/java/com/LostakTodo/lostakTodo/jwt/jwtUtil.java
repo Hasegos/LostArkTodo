@@ -20,14 +20,14 @@ import java.util.stream.Collectors;
 // JWT 생성 / JWT 까주는 함수 포함된  클래스
 public class jwtUtil {
 
-    private static SecretKey key; // jwt에 쓸 랜덤 키
+    private SecretKey key; // jwt에 쓸 랜덤 키
 
     @Value("${jwt.secret-Key}") // 안전을 위해 application에 등록후 사용
     public void setKey(String secret) {
         this.key = Keys.hmacShaKeyFor(Decoders.BASE64.decode(secret));
     }
     // JWT 만들어주는 함수
-    public static String createToken(Authentication auth){
+    public  String createToken(Authentication auth){
         // .claim(이름, 값) 으로 JWT 에 데이터 추가 가능
 
         // 유저에대한 정보를 얻음 그 정보를 CustomUser 를 통해 사용할 정보만 추출
@@ -47,7 +47,7 @@ public class jwtUtil {
     }
     
      // Claim 에 추가된 유저정보 즉, JWT 에있는 정보를 까주는 함수
-    public static Claims extractToken(String token){
+    public Claims extractToken(String token){
 
         try {
             // Claims로

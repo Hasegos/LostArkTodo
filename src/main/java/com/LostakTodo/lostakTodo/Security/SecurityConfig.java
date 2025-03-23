@@ -18,6 +18,11 @@ import org.springframework.security.web.csrf.HttpSessionCsrfTokenRepository;
 @EnableWebSecurity
 public class SecurityConfig {
 
+    private final jwtFilter jwtFilter;
+
+    public SecurityConfig(jwtFilter jwtFilter){
+        this.jwtFilter = jwtFilter;
+    }
     @Bean
     PasswordEncoder passwordEncoder(){
         // 비밀번호를 안전하게 해시화 후 암호화상태로 저장 / 검사
@@ -41,7 +46,7 @@ public class SecurityConfig {
             // JWT를 사용할거기에  세션 데이터 생성 금지
             .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
             //로그인에 대해 유효한지 검사를 하기위해서 Filter 사용
-            .addFilterBefore(new jwtFilter(), ExceptionTranslationFilter.class)
+            .addFilterBefore(jwtFilter, ExceptionTranslationFilter.class)
             // 모든 경로에 대해 인증을 요구 X (만약 필요하면 URL에 주소넣기
             .authorizeHttpRequests(auth ->
                 auth.requestMatchers("/**").permitAll().
