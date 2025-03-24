@@ -135,19 +135,48 @@ function searchCharacterEquipment(userEquipment,divEquipment){
     const br = document.createElement("br");
 
     userEquipment.forEach((item, index) => {
-        const tip = JSON.parse(item.Tooltip);
-        console.log(tip);
 
-        const span = document.createElement("span");
-
-        // 아이템 품질
-        const quality = tip.Element_001.value.qualityValue;
-
-        span.innerText = quality;
-        console.log(quality)
-        // 안보이게 설정
+        // 해당 내용들은 안보이게끔
         if(item.Type === "나침반" || item.Type == "부적"){
             return true;
+        }
+
+        const span = document.createElement("span");
+        span.style.display = "block"
+        span.style.textAlign = "center";
+        span.style.borderRadius = "5px";
+        span.style.width = "40px";
+
+        if(item.Type === "팔찌" || item.Type === "어빌리티 스톤"){
+
+        }
+        else {
+            const tip = JSON.parse(item.Tooltip);
+            console.log(tip);
+            // 아이템 품질
+            const quality = tip.Element_001.value.qualityValue;
+
+            span.innerText = quality;
+            console.log(quality);
+
+            if(quality === 100){
+                span.style.backgroundColor = "#ff5e00";
+            }
+            else if(90<= quality &&  quality < 100){
+                span.style.backgroundColor = "#ff00dd";
+            }
+            else if(70<= quality &&  quality < 89){
+                span.style.backgroundColor = "#0054ff";
+            }
+            else if(30<= quality &&  quality < 69){
+                span.style.backgroundColor = "#00b700";
+            }
+            else if(10<= quality &&  quality < 29){
+                span.style.backgroundColor = "#ffc000";
+            }
+            else {
+                span.style.backgroundColor = "#c00000";
+            }
         }
 
         // 첫번째 6개 이후 7개 출력
@@ -170,7 +199,13 @@ function searchCharacterEquipment(userEquipment,divEquipment){
         userEquipmentImage.style.borderRadius = "7px";
         userEquipmentImage.style.marginRight = "10px";
 
-        divQuality.append(userEquipmentImage ,br.cloneNode() ,span )
+        // 팔찌 , 어빌리티 스톤은 품질 출력 x
+        if(item.Type === "팔찌" || item.Type === "어빌리티 스톤"){
+            divQuality.append(userEquipmentImage);
+        }
+        else {
+            divQuality.append(userEquipmentImage ,br.cloneNode() ,span );
+        }
 
         // 유물 일경우
         if(item.Grade == "유물"){
@@ -270,11 +305,9 @@ function searchCharacterEquipment(userEquipment,divEquipment){
 
                if(i == 2){
                     nameSpan.style.color = "#cf2429";
-
                }
                else{
                     nameSpan.style.color = "#ff6000";
-
                }
 
                divText.append(nameSpan,  "  ");
@@ -314,7 +347,6 @@ function searchCharacterEngraving(userEngravings, divEngraving){
 
     divEngraving.append(engraving);
 
-
     // 각인 이름 + 유물각인 단계
     for(item of userEngravings.ArkPassiveEffects){
         const divEngravingItem = document.createElement("div");
@@ -348,9 +380,6 @@ function searchCharacterEngraving(userEngravings, divEngraving){
         const X = document.createElement("span");
         X.textContent = " x ";
         X.style.color = "#e4ba27";
-
-
-
 
         if(item.AbilityStoneLevel == null){
             divEngravingItem.append(item.Name , Engraving, X , item.Level);

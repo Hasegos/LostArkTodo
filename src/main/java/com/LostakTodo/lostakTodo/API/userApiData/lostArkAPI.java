@@ -46,23 +46,20 @@ public class lostArkAPI {
 
             // Api 테이블에 user 정보를 외래참조로 저장 후에 api 키와 닉네임 저장
             UserApiName userApiName = new UserApiName();
+
+            // 로아 공식 API 키 공백 자체없애고 저장
             String ApiKey = apiKey.replaceAll("\\s", "").trim();
 
 
-            System.out.println(ApiKey);
             userApiName.setUser(user);
             userApiName.setApiKey(ApiKey);
             userApiName.setUserName(playerId);
-
 
             userApiNameRepository.save(userApiName);
         }catch (Exception e){
             System.out.println("에러 메세지" + e.getMessage());
         }
     }
-
-
-
 
     // 해당 유저의 정보 (이름, 이미지, 아이템 레벨 , 직업)
     public String getUserProfiles(String playerId , String apiKey){
@@ -85,17 +82,8 @@ public class lostArkAPI {
         try {
             // 해당 url 과 Get 요청, 헤더설정
             userProfilesApi = restTemplate.exchange(userProfilesUrl , HttpMethod.GET , entity , String.class);
-
-            System.out.println(apiUrl);
-
-            System.out.println(apiKey);
-            System.out.println(userProfilesUrl);
-
             // Json 데이터 그대로 넘겨주기
             return userProfilesApi.getBody();
-
-
-
         }
         catch (Exception e){
             e.printStackTrace();
@@ -117,12 +105,8 @@ public class lostArkAPI {
         ResponseEntity<String> userProfilesApi = null;
 
         try {
-            // 해당 url 과 Get 요청, 헤더설정
             userProfilesApi = restTemplate.exchange(userProfilesUrl , HttpMethod.GET , entity , String.class);
-            // Json 데이터 그대로 넘겨주기
 
-            System.out.println(apiKey);
-            System.out.println(userProfilesUrl);
             return userProfilesApi.getBody();
         }
         catch (Exception e){
@@ -146,9 +130,6 @@ public class lostArkAPI {
         try {
             userProfilesApi = restTemplate.exchange(userProfilesUrl, HttpMethod.GET , entity , String.class);
 
-
-            System.out.println(apiKey);
-            System.out.println(userProfilesUrl);
             return  userProfilesApi.getBody();
         }
         catch (Exception e){

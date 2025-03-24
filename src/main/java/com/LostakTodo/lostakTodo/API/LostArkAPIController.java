@@ -31,14 +31,12 @@ public class LostArkAPIController {
         return "api/api";
     }
 
-
     // 특정 캐릭터 정보 (이름, 레벨, 이미지, 클래스 이름)
     @GetMapping("/home/userProfiles")
     public ResponseEntity<?> getUserProfiles(@RequestParam String playerId, Authentication auth) {
         UserApiName userApiInformation = lostArkApiService.getUserApikeyNickname(auth).get();
 
         String apiKey = userApiInformation.getApiKey();
-        System.out.println(apiKey);
 
         try {
             String jsonString = lostArkAPI.getUserProfiles(playerId, apiKey.trim());
@@ -82,7 +80,6 @@ public class LostArkAPIController {
         }
     }
 
-
     // API 키 등록시 DB에 등록
     @PostMapping("/DBApi") // 캐릭터 정보 추가 할떄 발생
     String API_Get(@RequestParam String API_key, String playerId, Authentication auth){
@@ -97,7 +94,6 @@ public class LostArkAPIController {
             UserApiName remove = lostArkApiService.getUserApikeyNickname(auth).get();
             userApiNameRepository.delete(remove);
         }
-
         lostArkAPI.setApiKey(API_key, auth, playerId);
 
         return "redirect:/home";

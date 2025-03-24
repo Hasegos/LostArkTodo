@@ -29,6 +29,12 @@
     background-color : #121212;
     color : white;
 }
+
+h4 {
+    font-size : 30px;
+}
+
 body {
     background-color : #131415;
+    color : white;
 }
