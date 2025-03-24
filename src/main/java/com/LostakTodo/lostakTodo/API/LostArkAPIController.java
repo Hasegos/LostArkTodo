@@ -38,6 +38,7 @@ public class LostArkAPIController {
         UserApiName userApiInformation = lostArkApiService.getUserApikeyNickname(auth).get();
 
         String apiKey = userApiInformation.getApiKey();
+        System.out.println(apiKey);
 
         try {
             String jsonString = lostArkAPI.getUserProfiles(playerId, apiKey.trim());

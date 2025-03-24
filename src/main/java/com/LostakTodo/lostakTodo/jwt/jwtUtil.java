@@ -20,8 +20,10 @@ import java.util.stream.Collectors;
 // JWT 생성 / JWT 까주는 함수 포함된  클래스
 public class jwtUtil {
 
+    // application.properties 에 있는 key 를 static있는 키가 주입이안됨.
     private SecretKey key; // jwt에 쓸 랜덤 키
-
+    
+    // 여기서 @Value 는 인스턴스 방식이라서 static 기반제거후 리팩토링
     @Value("${jwt.secret-Key}") // 안전을 위해 application에 등록후 사용
     public void setKey(String secret) {
         this.key = Keys.hmacShaKeyFor(Decoders.BASE64.decode(secret));

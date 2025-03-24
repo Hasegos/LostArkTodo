@@ -19,7 +19,7 @@ import org.springframework.security.web.csrf.HttpSessionCsrfTokenRepository;
 public class SecurityConfig {
 
     private final jwtFilter jwtFilter;
-
+    //
     public SecurityConfig(jwtFilter jwtFilter){
         this.jwtFilter = jwtFilter;
     }
@@ -28,7 +28,6 @@ public class SecurityConfig {
         // 비밀번호를 안전하게 해시화 후 암호화상태로 저장 / 검사
         return new BCryptPasswordEncoder();
     }
-
 
     @Bean
     public CsrfTokenRepository csrfTokenRepository() {

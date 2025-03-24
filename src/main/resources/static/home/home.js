@@ -26,7 +26,7 @@ async function charactersInformation() {
         const userEquipmentCall = await fetch(`/home/userEquipment?playerId=${encodeURIComponent(repCharacter)}`);
         const userEquipment = await userEquipmentCall.json();
 
-
+        console.log(userEquipment);
 
         const userEngravingsCall = await fetch(`/home/userEngravings?playerId=${encodeURIComponent(repCharacter)}`);
         const userEngravings = await userEngravingsCall.json();
@@ -91,6 +91,7 @@ function searchCharacter(userProfiles,userEquipment,userEngravings){
 // 캐릭터 자체 정보
 function searchCharacterInformation(userProfiles,divInformation){
 
+
     divInformation.style.display ="flex";
     divInformation.style.height = "300px";
     // text 묶음
@@ -131,10 +132,19 @@ function searchCharacterEquipment(userEquipment,divEquipment){
 
     let itemsPerPow = 6;
     let rowContainer = null;
-
+    const br = document.createElement("br");
 
     userEquipment.forEach((item, index) => {
+        const tip = JSON.parse(item.Tooltip);
+        console.log(tip);
 
+        const span = document.createElement("span");
+
+        // 아이템 품질
+        const quality = tip.Element_001.value.qualityValue;
+
+        span.innerText = quality;
+        console.log(quality)
         // 안보이게 설정
         if(item.Type === "나침반" || item.Type == "부적"){
             return true;
@@ -150,7 +160,8 @@ function searchCharacterEquipment(userEquipment,divEquipment){
 
             divEquipment.appendChild(rowContainer);
         }
-
+        // 품질과 아이템 이미지 합칠 공간
+        const divQuality = document.createElement("div");
         // 아이템 이미지
         const userEquipmentImage = new Image();
         userEquipmentImage.src = item.Icon;
@@ -158,6 +169,8 @@ function searchCharacterEquipment(userEquipment,divEquipment){
         userEquipmentImage.style.height = "45px";
         userEquipmentImage.style.borderRadius = "7px";
         userEquipmentImage.style.marginRight = "10px";
+
+        divQuality.append(userEquipmentImage ,br.cloneNode() ,span )
 
         // 유물 일경우
         if(item.Grade == "유물"){
@@ -196,7 +209,7 @@ function searchCharacterEquipment(userEquipment,divEquipment){
             for(let effect of polishingEffect){
                 div.innerHTML += effect + "<br>";
             }
-            itemContainer.append(userEquipmentImage,div);
+            itemContainer.append(divQuality,div);
         }
         else if(item.Type == "팔찌"){
             const div = document.createElement("div");
@@ -216,7 +229,7 @@ function searchCharacterEquipment(userEquipment,divEquipment){
                 div.innerHTML += effect + "<br>";
             }
             div.style.width = "390px";
-            itemContainer.append(userEquipmentImage, div);
+            itemContainer.append(divQuality, div);
 
         }else if(item.Type == "어빌리티 스톤"){
             const div = document.createElement("div");
@@ -273,10 +286,10 @@ function searchCharacterEquipment(userEquipment,divEquipment){
                i++;
 
             }
-            itemContainer.append(userEquipmentImage, div);
+            itemContainer.append(divQuality, div);
         }
         else{
-            itemContainer.append(userEquipmentImage, item.Name);
+            itemContainer.append(divQuality, item.Name);
         }
 
         rowContainer.appendChild(itemContainer);
@@ -289,11 +302,15 @@ function searchCharacterEngraving(userEngravings, divEngraving){
     // 각인 테두리 css
     divEngraving.style.display = "flex"
     divEngraving.style.flexDirection = "column";
+    divEngraving.style.width = "200px";
 
     // 클랙스 : 각인
     const engraving = document.createElement("div");
     engraving.className += "engraving";
     engraving.innerText = "각인";
+    engraving.style.textAlign = "center";
+    engraving.style.fontSize = "19px";
+    engraving.style.marginBottom = "15px";
 
     divEngraving.append(engraving);
 

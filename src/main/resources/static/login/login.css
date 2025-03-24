@@ -32,6 +32,24 @@
     color : white;
     height : 45px;
 }
+
+/* 로그인 페이지 */
+h4 {
+    font-size : 30px;
+}
+/* 회원가입 div 태그 */
+.membership {
+    margin-top : 15px;
+    width : 390px;
+}
+/* 회원가입 */
+.membership > a {
+    color:white;
+    text-decoration : none;
+    font-size : 18px;
+}
+
 body {
+    color:white;
     background-color : #131415;
 }

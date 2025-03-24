@@ -23,14 +23,12 @@ import java.util.Arrays;
 @Component
 public class jwtFilter extends OncePerRequestFilter {
 
-
+    // 인스턴스 기반 jwtUtil DI(의존성) 을 추가
     private final jwtUtil jwtUtil;
 
     public jwtFilter(jwtUtil jwtUtil){
         this.jwtUtil = jwtUtil;
     }
-
-
 
     @Override
     protected void doFilterInternal(HttpServletRequest request,

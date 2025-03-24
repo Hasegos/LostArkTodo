@@ -29,6 +29,21 @@
     background-color : #121212;
     color : white;
 }
+h4 {
+    font-size: 30px;
+}
+.backTag {
+    width : 390px;
+    margin-top : 15px;
+}
+
+.backTag > a {
+    font-size : 18px;
+    text-decoration : none;
+    color : white;
+}
+
 body {
     background-color : #131415;
+    color : white
 }

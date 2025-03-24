@@ -9,7 +9,6 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
-import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -17,16 +16,14 @@ import org.springframework.web.bind.annotation.RequestBody;
 import java.util.Map;
 
 @Controller
+// 자동 생성자 생성 생성자 생성 X
 @RequiredArgsConstructor
-
 public class loginController {
 
-
+    // jwtUtil DI 의존성 추가
     private final jwtUtil jwtUtil;
     // 로그인을 자동으로 시켜주기위해서
     private final AuthenticationManagerBuilder authenticationManagerBuilder;
-
-
 
     // 로그인페이지
     @GetMapping("/login")

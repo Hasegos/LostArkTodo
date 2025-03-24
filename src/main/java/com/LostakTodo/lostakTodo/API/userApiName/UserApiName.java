@@ -14,7 +14,7 @@ public class UserApiName {
     private Long id;
 
     // api 키 길이 천글자 이하로 설정
-    @Column(length = 1000)
+    @Column(length = 3000)
     private String apiKey;
 
     private String userName;

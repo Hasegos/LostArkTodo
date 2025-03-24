@@ -46,10 +46,14 @@ public class lostArkAPI {
 
             // Api 테이블에 user 정보를 외래참조로 저장 후에 api 키와 닉네임 저장
             UserApiName userApiName = new UserApiName();
+            String ApiKey = apiKey.replaceAll("\\s", "").trim();
 
+
+            System.out.println(ApiKey);
             userApiName.setUser(user);
-            userApiName.setApiKey(apiKey);
+            userApiName.setApiKey(ApiKey);
             userApiName.setUserName(playerId);
+
 
             userApiNameRepository.save(userApiName);
         }catch (Exception e){
@@ -72,7 +76,7 @@ public class lostArkAPI {
         // HTTP 헤더는 클라이언트와 서버 간의 요청과 응답에 추가적인 정보 제공(특정정보를 헤더에 포함가능)
         // 로스트아크 API 특성상 Authorization 권한과 Bearer 토근에 api키를 같이넣어줘야함
         HttpHeaders headers = new HttpHeaders();
-        headers.set("Authorization", "Bearer " + apiKey.trim());
+        headers.set("Authorization", "Bearer " + apiKey);
 
         HttpEntity<String> entity = new HttpEntity<>(headers);
 
@@ -82,7 +86,7 @@ public class lostArkAPI {
             // 해당 url 과 Get 요청, 헤더설정
             userProfilesApi = restTemplate.exchange(userProfilesUrl , HttpMethod.GET , entity , String.class);
 
-
+            System.out.println(apiUrl);
 
             System.out.println(apiKey);
             System.out.println(userProfilesUrl);
@@ -107,7 +111,7 @@ public class lostArkAPI {
                 .toUriString();
 
         HttpHeaders headers = new HttpHeaders();
-        headers.set("Authorization", "Bearer " + apiKey.trim());
+        headers.set("Authorization", "Bearer " + apiKey);
 
         HttpEntity<String> entity = new HttpEntity<>(headers);
         ResponseEntity<String> userProfilesApi = null;
@@ -134,7 +138,7 @@ public class lostArkAPI {
                "/armories/characters/" + playerId + "/engravings")
                 .toUriString();
         HttpHeaders headers = new HttpHeaders();
-        headers.set("Authorization", "Bearer " + apiKey.trim());
+        headers.set("Authorization", "Bearer " + apiKey);
 
         HttpEntity<String> entity = new HttpEntity<>(headers);
         ResponseEntity<String> userProfilesApi = null;
