@@ -13,6 +13,7 @@ import java.util.List;
 
 
 @Entity
+@Table(name = "user_Data")
 @Setter
 @Getter
 public class User {
