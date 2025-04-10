@@ -11,7 +11,7 @@
 ## LOA Check 소개
 
 <p align="center">
-<img src="https://github.com/user-attachments/assets/006da785-3ac9-4971-9d59-88848b925e1b">
+<img src="https://github.com/user-attachments/assets/74171823-4db1-4a11-8fd2-6021ea36ea0c">
 </p>
 
 <h3>로스트아크 유저를 위한 캐릭터 검색 서비스</h3>
@@ -153,9 +153,9 @@ public class jwtUtil {
 로그인, 회원 가입을 통해 메인 화면으로 이동할 수 있습니다.
 ```
 
-![Image](https://github.com/user-attachments/assets/98a3303c-ea24-4141-9932-61e1985d4e66)
+![Image](https://github.com/user-attachments/assets/a94ccb64-54d4-4ac2-906d-5932c4dd047a)
 
-![Image](https://github.com/user-attachments/assets/1ad5bf5a-5e96-47ee-850b-8f147ba7883e)
+![Image](https://github.com/user-attachments/assets/fdeaf2b0-abde-4a84-8049-d72c57dda58b)
 
 ### 2.API 등록
 
@@ -163,7 +163,7 @@ public class jwtUtil {
 공식 로스트아크 API키를 등록하고 이후 검색기능을 사용할 수 있습니다.
 ```
 
-![Image](https://github.com/user-attachments/assets/16f1f747-3882-4f36-8991-04b65e0fea3c)
+![Image](https://github.com/user-attachments/assets/a1fe8c54-61bd-43a8-907b-cfd93363fd5c)
 
 ### 3.캐릭터 정보 출력
 
@@ -171,4 +171,4 @@ public class jwtUtil {
 정상적인 닉네임과 올바른 API키를 통해 캐릭터 정보를 찾을 수 있습니다.
 ```
 
-![Image](https://github.com/user-attachments/assets/be957ea8-4925-4fce-b367-cfa0678a01a8)
+![Image](https://github.com/user-attachments/assets/1b6f217f-ffcb-4b6d-baff-01687fc914fb)
