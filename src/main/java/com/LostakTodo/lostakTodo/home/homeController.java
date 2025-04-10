@@ -15,8 +15,6 @@ public class homeController {
     @GetMapping("/home")
     String home( HttpServletRequest request,Authentication authentication){
 
-
-
         return "home/home";
     }
 }

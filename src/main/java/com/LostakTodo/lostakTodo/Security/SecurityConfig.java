@@ -65,9 +65,6 @@ public class SecurityConfig {
                     response.addCookie(jwtCookie); // 응답에 쿠키 추가
                 }))
         );
-
         return http.build();
     }
-
 }
-

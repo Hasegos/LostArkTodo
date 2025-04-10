@@ -63,7 +63,5 @@ public class jwtUtil {
             System.out.println("JWT 검증 실패: " + e.getMessage());
             throw new RuntimeException("JWT 검증 실패", e);
         }
-
     }
-
 }
