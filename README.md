@@ -72,7 +72,7 @@ H2 DataBase
 
 #### 전체적인 흐름
 
-![Image](https://github.com/user-attachments/assets/352aced6-8607-46be-975e-be9b314e6ba5)
+![Image](https://github.com/user-attachments/assets/76dcbe31-5b8d-48c3-81d6-948ab336f581)
 
 ## 주요 기능
 
